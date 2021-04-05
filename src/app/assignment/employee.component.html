@@ -1,0 +1,66 @@
+<input type="text" placeholder= "Search by name" [(ngModel)] = "searchText">
+<br><br>
+<table class="table table-strip border">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+
+    <th>Designation</th>
+    <th>Joining Date</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let candidate of filteredcandidate_data">
+      <td>
+        {{candidate.id}}
+      </td>
+      <td>
+        {{candidate.name}}
+      </td>
+      <td>
+        {{candidate.department}}
+      </td>
+      <td>
+        {{candidate.joining_date | date: "d/M/yyyy"}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="onClick()"> remove "Development" Department </button>
+<br>
+<br>
+<button class="btn btn-primary" (click)="getDistinct()"> get distinct Department </button>
+
+<div *ngIf="candidate_data2.length > 0">
+  <table class="table table-strip border">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+
+      <th>Designation</th>
+      <th>Joining Date</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of candidate_data2">
+        <td>
+          {{candidate.id}}
+        </td>
+        <td>
+          {{candidate.name}}
+        </td>
+        <td>
+          {{candidate.department}}
+        </td>
+        <td>
+          {{candidate.joining_date | date: "d/M/yyyy"}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf=" this.candidate_data3.length > 0">
+
+  <div *ngFor="let can of this.candidate_data3 "> {{can}} </div>
+
+</div>
